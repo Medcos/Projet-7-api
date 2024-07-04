@@ -24,16 +24,14 @@ X = train_df[feats]
 X = X.fillna(X.mean())     
 
 ## Charger le modèle enregistré
-local_path = r"C:\Users\dmedc\Documents\DATA SCIENCE\PROJET\Projet 7\kernel\modele"
 local_path = r".\kernel\modele"
 model = mlflow.lightgbm.load_model(local_path)
 
 ## Création d'un explainer SHAP
 explainer = shap.TreeExplainer(model)
-## Initialisation de shap.initjs()
-#shap.initjs()
+
 ## Chemin d'accès
-folder = r"C:\Users\dmedc\Documents\DATA SCIENCE\PROJET\Projet 7\api/image"
+folder = r".\image"
 
 ## Page d'accueil
 @app.route('/', methods=['GET'])
