@@ -7,12 +7,21 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import shap
 import jinja2
+import os
+
 
 
 app = Flask(__name__)
 
-data = pd.read_csv(r".\kernel\info_clients.csv").head(1000)
-df = pd.read_csv(r".\kernel\data.csv").head(1000)
+## Importer les données
+data_path = os.path.join(os.getcwd(), 'kernel', 'info_clients.csv')
+#data = pd.read_csv(r".\kernel\info_clients.csv").head(1000)
+data = pd.read_csv(data_path).head(1000)
+
+df_path = os.path.join(os.getcwd(), 'kernel', 'data.csv')
+#df = pd.read_csv(r".\kernel\data.csv").head(1000)
+df = pd.read_csv(df_path).head(1000)
+
 
 ## Préparation des données
 train_df = df[df['TARGET'].notnull()]
