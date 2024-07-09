@@ -22,7 +22,8 @@ df_path = os.path.join(os.getcwd(), 'kernel', 'data.csv')
 #df = pd.read_csv(r".\kernel\data.csv").head(1000)
 df = pd.read_csv(df_path).head(1000)
 
-print(df_path)
+print("base de donnée data:", data)
+print("base de donnée df :", df)
 sys.stdout.flush()
 
 ## Préparation des données
@@ -32,7 +33,8 @@ test_df = df[df['TARGET'].isnull()]
 feats = [f for f in train_df.columns if f not in ['TARGET','SK_ID_BUREAU','SK_ID_PREV','index']]    
 X = train_df[feats]
 # Remplacer les NaN par la moyenne
-X = X.fillna(X.mean())     
+X = X.fillna(X.mean()) 
+print("Afficher X :", X)    
 
 ## Charger le modèle enregistré
 local_path = r".\kernel\modele"
