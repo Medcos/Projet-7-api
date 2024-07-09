@@ -22,6 +22,10 @@ df_path = os.path.join(os.getcwd(), 'kernel', 'data.csv')
 #df = pd.read_csv(r".\kernel\data.csv").head(1000)
 df = pd.read_csv(df_path).head(1000)
 
+print(df_path)
+
+print(df)
+
 
 ## Préparation des données
 train_df = df[df['TARGET'].notnull()]
