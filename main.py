@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import shap
 import jinja2
 import os
-
+import sys
 
 
 app = Flask(__name__)
@@ -23,9 +23,7 @@ df_path = os.path.join(os.getcwd(), 'kernel', 'data.csv')
 df = pd.read_csv(df_path).head(1000)
 
 print(df_path)
-
-print(df)
-
+sys.stdout.flush()
 
 ## Préparation des données
 train_df = df[df['TARGET'].notnull()]
