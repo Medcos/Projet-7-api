@@ -25,13 +25,10 @@ df = pd.read_csv(df_path).head(1000)
 print("base de donnée data:", data)
 print("base de donnée df :", df)
 sys.stdout.flush()
-print("----------------------------------------------------------------------------------------")
 
 ## Préparation des données
-print(df['TARGET'].isnull().sum())
-print(df['TARGET'].notnull().sum())
-print("------------------------------------------------------------------------------------------")
-train_df = df[df['TARGET'].notnull()]
+#train_df = df[df['TARGET'].notnull()]
+train_df = df.dropna(subset=['TARGET'])
 #test_df = df[df['TARGET'].isnull()]
 # Séparer les caractéristiques et la variable cible
 feats = [f for f in train_df.columns if f not in ['TARGET','SK_ID_BUREAU','SK_ID_PREV','index']]    
