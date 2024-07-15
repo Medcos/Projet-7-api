@@ -13,8 +13,10 @@ import sys
 
 app = Flask(__name__)
 
-print("Bonjour d'être venu")
-
+## Page d'accueil
+@app.route('/', methods=['GET'])
+def hello():
+    return " Bienvenue à la société financière, nommée 'Prêt à dépenser'"
 
 if __name__ == '__main__':
     app.run()
