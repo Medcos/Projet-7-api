@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 
 ## Importer les données
-data_path = os.path.join(os.getcwd(), 'kernel', 'info_clients.csv')
+data_path = os.path.join(os.getcwd(),'info_clients.csv')
 #data = pd.read_csv(r".\info_clients.csv").head(1000)
 data = pd.read_csv(data_path).head(1000)
 
