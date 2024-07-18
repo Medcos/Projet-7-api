@@ -15,8 +15,8 @@ app = Flask(__name__)
 
 ## Importer les données
 data_path = os.path.join(os.getcwd(), 'kernel', 'info_clients.csv')
-#data = pd.read_csv(r".\kernel\info_clients.csv").head(1000)
 data = pd.read_csv(data_path).head(1000)
+
 
 ## Page d'accueil
 @app.route('/', methods=['GET'])
@@ -24,6 +24,13 @@ def hello():
     return " Bienvenue à la société financière, nommée 'Prêt à dépenser'"
 
 print(data)
+
+## Récupérer les ID des clients à partir de la colonne "id" de la DataFrame
+@app.route('/clients', methods=['GET'])
+def get_clients():
+    client_ids = data['SK_ID_CURR'].tolist()
+    return jsonify(client_ids)
+
 
 if __name__ == '__main__':
     app.run()
