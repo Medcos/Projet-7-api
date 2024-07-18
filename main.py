@@ -23,11 +23,7 @@ data = pd.read_csv(data_path).head(1000)
 def hello():
     return " Bienvenue à la société financière, nommée 'Prêt à dépenser'"
 
-## Récupérer les ID des clients à partir de la colonne "id" de la DataFrame
-@app.route('/clients', methods=['GET'])
-def get_clients():
-    client_ids = data['SK_ID_CURR'].tolist()
-    return jsonify(client_ids[:1000])
+print(data)
 
 if __name__ == '__main__':
     app.run()
