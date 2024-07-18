@@ -28,9 +28,8 @@ print(data)
 ## Récupérer les ID des clients à partir de la colonne "id" de la DataFrame
 @app.route('/clients', methods=['GET'])
 def get_clients():
-    client_ids = data['SK_ID_CURR'].tolist()
+    client_ids = data.columns.tolist()
     return jsonify(client_ids)
-
 
 if __name__ == '__main__':
     app.run()
